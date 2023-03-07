@@ -1,0 +1,17 @@
+@import 'variables';
+
+.event {
+    width: clamp(56rem, 82%, 120rem);
+    padding: 2rem 3.2rem;
+}
+
+@media (max-width: $mediumScreen) {
+    .event {
+        width: 100vw;
+    }
+}
+@media (max-width: $mobile) {
+    .event {
+        padding: 2rem 1.6rem;
+    }
+}

@@ -1,0 +1,63 @@
+@import 'variables';
+@import 'mixins';
+
+.burgerDiv {
+    position: fixed;
+    bottom: 1.4rem;
+    right: 1.4rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    display: none;
+    transform: translate(0, 200%);
+    animation: appear 0.6s ease 0.2s forwards;
+    z-index: 3;
+    .burger {
+        background: $blue;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s ease;
+        .line {
+            width: 24px;
+            height: 2px;
+            background: white;
+            border-radius: 1px;
+            transition: 0.3s ease;
+            &:nth-of-type(2) {
+                margin: 4px;
+            }
+        }
+        &Active {
+            @extend .burger;
+            background: #E72556;
+            .line {
+                &:nth-of-type(1) {
+                    transform: translate(0, 300%) rotate(45deg);
+                }
+                &:nth-of-type(2) {
+                    width: 0px;
+                }
+                &:nth-of-type(3) {
+                    transform: translate(0, -300%) rotate(-45deg);
+                }
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    to {
+        transform: translate(0, 0);
+    }
+}
+
+@media (max-width: $mediumScreen) {
+    .burgerDiv {
+        display: flex;
+    }
+}

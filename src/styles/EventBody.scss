@@ -1,0 +1,123 @@
+@import 'variables';
+@import 'mixins';
+
+.eventBody {
+    // border: 2px dashed violet;
+    // padding-top: 3.2rem;
+    padding-top: 2rem;
+    header {
+        // border: 1px solid black;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        img {
+            width: 2rem;
+            margin-right: 1.6rem;
+        }
+        h3 {
+            @include font(20px, 600);
+        }
+    }
+    .stepTitle {
+        @include font(14px, 700);
+        color: #222;
+        margin-bottom: 0.8rem;
+        span {
+            @include font(14px, 400);
+            color: #444;
+        }
+    }
+    .content {
+        margin-bottom: 2rem;
+        display: flex;
+        gap: 2rem;
+        padding: 1.6rem;
+        .card {
+            width: 14rem;
+        }
+    }
+    .content2 {
+        margin-bottom: 2rem;
+        gap: 1.6rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+        .workflow:last-of-type {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img {
+                margin-bottom: 0.6rem;
+            }
+        }
+    }
+    .block {
+        border: 1px solid $grey3;
+        border-radius: 4px;
+    }
+    .workflow {
+        padding: 1.6rem;
+        height: 8rem;
+        cursor: pointer;
+        transition: 0.3s ease;
+        &:hover {
+            background: #5C00DC14;
+        }
+    }
+    h5 {
+        @include font(13px, 700);
+        margin-bottom: 0.4rem;
+        letter-spacing: 0.02rem;
+        display: flex;
+        img {
+            margin-right: 0.6rem;
+        }
+    }
+    p {
+        @include font(12px, 400);
+        letter-spacing: 0.01rem;
+    }
+    .credits {
+        margin-top: 4rem;
+        opacity: 0.4;
+        p {
+            font-size: 12px;
+            transform: translate(0, -100%);
+        }
+    }
+}
+
+@media (max-width: $smallScreen) {
+    .eventBody {
+        header {
+            margin-bottom: 2rem;
+        }
+        .stepTitle {
+            @include font(14px, 700);
+            margin-bottom: 1.2rem;
+            span {
+                @include font(14px, 400);
+                color: #444;
+            }
+        }
+        .content {
+            margin-bottom: 3.2rem;
+            flex-direction: column;
+            .card {
+                width: auto;
+            }
+        }
+        .content2 {
+            margin-bottom: 3.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    .eventBody {        
+        h5 {
+            @include font(13px, 580);
+        }
+    }
+}

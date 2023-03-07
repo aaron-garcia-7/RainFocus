@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import Nav from "./components/Nav.jsx";
+import Event from "./components/Event.jsx";
+import Burger from "./components/Burger.jsx";
+import "./styles/App.scss";
 
 function App() {
+  const [nav, setNav] = useState(false);
+
+  const closeNav = () => {
+    window.innerWidth > 1200 ? setNav(false) : null;
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", closeNav);
+
+    return () => {
+      window.removeEventListener("resize", closeNav);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Nav nav={nav} setNav={setNav} />
+      <Event nav={nav} setNav={setNav} />
+      <Burger nav={nav} setNav={setNav} />
     </div>
   );
 }

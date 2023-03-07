@@ -1,0 +1,92 @@
+@import 'variables';
+@import 'mixins';
+.eventHeader {
+    border-bottom: 1px solid $grey2;
+}
+
+.eventDetails {
+    margin-bottom: 2rem;
+    display: flex;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .content {
+        display: flex;
+        .eventImg {
+            margin-right: 1rem;
+        }
+        .contentHeader {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            h1 {
+                @include font(32px, 600);
+            }
+            p {
+                @include font(16px, 400);
+                &:nth-of-type(1) {
+                    transform: translate(0, 20%);
+                }
+            }
+        }
+    }
+    .editBtn {
+        @include font(14px, 600);
+        background: $blue;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        // width: 101px;
+        // height: 33px;
+        border-radius: 4px;
+        letter-spacing: 0.02rem;
+    }
+}
+
+.infoTitle {
+    @include font(24px, 600);
+    margin-bottom: 1rem;
+}
+.infoBody {
+    @include font(16px, 400);
+    margin-bottom: 3.2rem;
+}
+
+@media (max-width: $smallScreen) {
+    .eventDetails {
+        flex-direction: column;
+        .content {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+@media (max-width: $mobile) {
+    .eventDetails {
+        .content {
+            .eventImg {
+                // width: 20%;
+                width: 4rem;
+                height: 4rem;
+            }
+            .contentHeader {
+                h1 {
+                    @include font(24px, 600);
+                }
+                p {
+                    @include font(12px, 400);
+                }
+            }
+        }
+        .editBtn {
+            @include font(12px, 500);
+        }
+    }
+    .infoTitle {
+        @include font(18px, 580);
+    }
+    .infoBody {
+        @include font(14px, 400);
+        margin-bottom: 2.4rem;
+    }
+}
